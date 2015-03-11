@@ -1,0 +1,16 @@
+  <div class="in">
+    <table border="0" cellspacing="0" cellpadding="10" class="table_main" width="100%" >
+      <tr style="background-color:#d9d8d8;font-size:14px;">
+        <th width="500">Orignal URL</th>
+        <th width="150">Fracture URL</th>
+        <th width="100">Clciks</th>
+      </tr>
+      <% @requests.each do |a| %>
+      <tr class="<%= cycle %>">
+        <td><a href="<%= a.url %>" target="_blank" rel="nofollow"><%= a.url.length > 40 ? "#{a.url[0..40]}..." : a.url %></a></td>
+        <td><a href="/<%= a.slug %>" target="_blank" rel="nofollow">http://bigcom.co/<%= a.slug %></a></td>
+        <td style="text-align:right;"><%= a.count %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>

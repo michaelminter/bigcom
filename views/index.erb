@@ -1,0 +1,19 @@
+<div id="table_container">
+  <div id="flash-wrapper"></div>
+  <table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <th width="500">Original URL</th>
+      <th width="230">Shortened URL</th>
+      <th width="230">Created</th>
+    </tr>
+    <tbody id="pusher_container">
+      <% @redirects.each do |f| %>
+      <tr class="<%= cycle %>">
+        <td><a href="<%= f.url %>" target="_blank" rel="nofollow"><%= f.url.length > 40 ? "#{f.url[0..40]}..." : f.url %></a></td>
+        <td><a href="http://bigcom.co/<%= f.slug %>" target="_blank" rel="nofollow">bigcom.co/<%= f.slug %></a> <a href="/analytics/<%= f.slug %>" rel="nofollow"><i class="fa fa-bar-chart" style="margin-left:5px;"></i></a></td>
+        <td style="text-align:right;"><%= f.created_at.to_time.strftime("%Y-%m-%d %H:%M %p") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,84 @@
+<%
+todayyear  = @today.strftime('%j').to_i
+reachyear  = @reach.strftime('%j').to_i > todayyear ? @reach.strftime('%j').to_i + todayyear : @reach.strftime('%j').to_i
+dailycount = []
+
+(reachyear..todayyear).each do |i|
+  esc = 0
+  @main.each do |d|
+    if i == d.dayofyear.to_i
+      dailycount << [d.count, i]
+      esc = 1
+    end
+  end
+  if esc == 0
+    dailycount << [0, i]
+  end
+end
+%>
+
+<div id="container" style="width:100%;height:400px;"></div>
+
+<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'areaspline'
+            },
+            title: {
+                text: 'Requests Sorted by Time',
+                x: -20, //center
+                y: 18
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            xAxis: {
+                categories: [<% (0..7).reverse_each do |i| %>'<%= DateTime.parse(Chronic.parse("#{i} days ago").to_s).strftime('%_m/%-d') %>',<% end %>],
+                labels: {
+                    align: 'left',
+                    x: 3,
+                    y: -3
+                }
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                  align: 'left',
+                  x: 3,
+                  y: 16
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<strong>'+this.y+' '+this.series.name+'</strong>';
+                },
+                crosshairs: true
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'left',
+                verticalAlign: 'top',
+                y: 0,
+                floating: true,
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Requests',
+                data: [<%= dailycount.map {|d| d[0] }.join(',') %>]
+            }]
+        });
+    });
+});
+</script>

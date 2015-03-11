@@ -1,0 +1,6 @@
+development: &non_production_settings
+  db_name: 'bigcom_development'
+  db_host: 'localhost'
+  db_username: 'root'
+  db_password: ''
+  adapter: 'postgresql'

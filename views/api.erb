@@ -1,0 +1,36 @@
+<h1>Documentation::API</h1>
+
+<p>This page refers to the Fracture.it API. Below I will describe how to interact with the application through the POST method.</p>
+
+<h2>Console</h2>
+
+<p><pre>curl -d 'url=yourdomain.com' http://bigcom.co</pre></p>
+
+<p><strong>JSON Return</strong></p>
+
+<p><pre>{"redirect_url":"http://bigcom.co/3","errors":""}</pre></p>
+
+<p>If your URL is more than 200 characters, or is an invalid URL:</p>
+
+<p><pre>{"redirect_url":"","errors":["Not a valid URL format"]}</pre></p>
+
+<h2>AJAX</h2>
+
+<p><pre>
+    $.ajax({
+      type: "POST",
+      url: "http://bigcom.co",
+      data: { url: "yourdomain" },
+      dataType: 'JSON'
+    }).done(function(data) {
+      $('#message').html("Fractured URL: " + data.redirect_url);
+    });
+</pre></p>
+
+<h2>Sandbox</h2>
+
+<p><pre>curl -d 'url=yourdomain' http://bigcom.co/sandbox</pre></p>
+
+<p><strong>JSON Return</strong></p>
+
+<p><pre>{"redirect_url":"http://bigcom.co/$url","errors":""}</pre></p>

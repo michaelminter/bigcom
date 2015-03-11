@@ -1,0 +1,13 @@
+.page-container {
+    padding-top: 50px;
+}
+
+.navbar-brand {
+    background: url(/images/header-logo.png) left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+.navbar {
+    background: #232831 !important;
+}

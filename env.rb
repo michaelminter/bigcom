@@ -1,0 +1,1 @@
+ENV['ENVIRONMENT'] = 'development'

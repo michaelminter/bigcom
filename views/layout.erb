@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Bigcommerce URL Shortening Service</title><!--PAGE TITLE, ADD YOUR OWN IN HERE-->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="wot-verification" content="f5ee99fd6ac7f1a06c48"/>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script><!--LOAD JQUERY, SCRIPT AT BOTTOM OF PAGE FOR FASTER LOAD TIMES, YOU'LL THANK ME LATER-->
+  <script src="/javascripts/main.js"></script>
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/base.css"><!--BASE STYLES, TYPOGRAPHY ETC.-->
+  <link rel="stylesheet" href="/stylesheets/skeleton.css"><!--GRID FRAMEWORK, NO NEED TO MODIFY-->
+  <link rel="stylesheet" href="/stylesheets/style.css"><!--TOP LEVEL STYLES, HANDLES LAYOUT AND OTHER FANCY EFFECTS-->
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="shortcut icon" href="/favicon.png">
+  
+  <!--script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script-->
+  <script type="text/javascript" charset="utf-8">
+//    $(function() {
+//      var pusher = new Pusher('<%= @pusher_api_key %>'); // Replace with your app key
+//      var channel = pusher.subscribe('test_channel');
+//
+//      // Some useful debug msgs
+//      pusher.connection.bind('connecting', function() {
+//        $('div#status').text('Connecting to Pusher...');
+//      });
+//      pusher.connection.bind('connected', function() {
+//        $('div#status').html('<a href="http://pusher.com?utm_source=badge" target="_blank" style="border:none;"><img src="/images/pusher_badge_light_2.png" style="border:none;" /></a>');
+//      });
+//      pusher.connection.bind('failed', function() {
+//        $('div#status').text('Connection to Pusher failed :(');
+//      });
+//      channel.bind('subscription_error', function(status) {
+//        $('div#status').text('Pusher subscription_error');
+//      });
+//
+//      channel.bind('my_event', function(data) {
+//        var url = '<a href="'+data.url+'" target="_blank">'+data.url+'</a>';
+//        var uri = '<a href="/'+data.encoded_uri+'" target="_blank">http://fracture.it/'+data.encoded_uri+'</a>';
+//
+//        if ($('#pusher_container tr:first').attr('class') == 'even') {
+//          $('#pusher_container').prepend($('<tr class="odd"><td>'+url+'</td><td>'+uri+'</td><td style="text-align:right;">'+data.created_at+'</td></tr>').fadeIn('slow'));
+//        } else {
+//          $('#pusher_container').prepend($('<tr class="even"><td>'+url+'</td><td>'+uri+'</td><td style="text-align:right;">'+data.created_at+'</td></tr>').fadeIn('slow'));
+//        }
+//      });
+//
+//      // channel.bind('errors', function(data) {
+//        // $('#messages small').html(data.message).fadeIn(500);
+//      // });
+//    });
+  </script>
+</head>
+<body>
+
+<div id="mainWrapper"><!--WRAPS MAIN SECTION, CREATING LOVELY GRADIENT BACKGROUND-->
+  <div id="main" class="container clearfix">
+    <div class="sixteen columns">
+
+      <div class="seven columns alpha">
+
+        <div class="row remove-bottom">
+          <h1 id="title" style="color:#FFFFFF;font:52px 'courgette';text-shadow:2px 2px #01508b;"><img src="/images/bc_logo_rgb_hzn.png" /></h1>
+        </div><!--/seven columns alpha-->
+
+        <h2 class="tagline"><span class="fancy">"</span> Shorten your URLs like a boss.<span class="fancy">"</span></h2><!--YOUR TAGLINE OR STATEMENT HERE, DELETE h2.tagline:first-letter IN CSS IF NOT USING QUOTE MARKS-->
+
+        <div id="messages"><small>Start typing in the text field below and hit <em>Enter</em></small></div>
+        <div id="errors"><small></small></div>
+        <form method="post" action="/" id="contact_form">
+          <input type="text" name="url" id="email" class="email" placeholder="http://" />
+          <button type="submit" id="submit"><i class="fa fa-check"></i></button>
+          <input type="hidden" name="send" value="1" />
+        </form><!--/form-->
+
+      </div><!--/seven columns offset by two-->
+
+
+      <div id="second" class="seven columns offset-by-two omega">
+
+        <p>Our <strong>brand new</strong> site is on it's way, not long to go now. <a href="http://github.com/bigcommerce-hackathon" target="_blank">Keep checking in</a> for more updates.</p><!--MAIN COPY, ADD IN WHAT YOU WISH-->
+
+        <p class="half-bottom">Key benefits of use:</p><!--MAIN LIST, ADD IN YOUR FEATURES AND BENEFITS-->
+        <ul>
+          <li><i class="fa fa-check-square-o"></i> Super fast (mS) transactions</li>
+          <li><i class="fa fa-check-square-o"></i> Awesome <a href="/documentation/api"><strong>JSON API</strong></a></li>
+          <li><i class="fa fa-check-square-o"></i> <strong>Postgres</strong> backed storage engine</li>
+          <li><i class="fa fa-check-square-o"></i> Unilimited life per request</li>
+          <li><i class="fa fa-check-square-o"></i> <strong>New Hotness</strong> <a href="#" target="_blank">Chrome Extension</a></strong>
+        </ul>
+
+      </div><!---/seven columns-->
+    </div><!--/sixteen columns-->
+  </div><!--/container -->
+</div><!--/#mainWrapper-->
+
+<div class="container" style="margin:40px auto;"><img src="/images/idea-banner-color_match.png" /></div>
+
+<div class="container" style="margin:100px auto;color:#CCCCCC;text-align:center;font-size:60px;line-height:70px;font-family:lobster;">Create a short URL, with dynamic<br />web store <a href="http://bigcom.co/1It">product chasers</a>.</div>
+
+<%= yield %>
+
+<div class="footerWrapper"><!--WRAPS FOOTER, CREATING THE WHITE BACKGROUND-->
+  <footer class="container clearfix">
+    <div class="thirteen columns alpha">
+      <div id="menu"><!--THIS WRAPS THE TWEETS SECTION AND PRESERVES THE LOADING MESSAGE-->
+        Developed by <a href="http://moorberry.net" target="_blank">Michael Minter</a> for the 2014 <a href="http://bigcommerce.com" target="_blank">Bigcommerce</a> Hackathon.<br />
+        <a href="/analytics">Analytics</a>&nbsp;&nbsp;
+        <a href="/documentation/api">API</a>&nbsp;&nbsp;
+        <a href="mailto:michael.minter@bigcommerce.com">Contact</a>
+      </div>
+    </div><!--/nine columns-->
+
+    <div class="three columns omega">
+      <div id="socialMedia" class="btn-group"><!--SOCIAL MEDIA LINKS, ADD YOUR APPROPRIATE URL'S TO THE A TAGS-->
+        <a class="fa fa-twitter" href="http://twitter.com/bigcommerce"><i class="icon-twitter"></i></a>
+        <a class="fa fa-github" href="http://github.com/bigcommerce-hackathon"><i class="icon-github"></i></a>
+        <a class="fa fa-linkedin" href="https://www.linkedin.com/company/103315?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A626073181416171124332%2CVSRPtargetId%3A103315%2CVSRPcmpt%3Aprimary"><i class="icon-linkedin"></i></a>
+      </div>
+    </div><!--/seven columns-->
+  </footer><!--/footer container-->
+</div><!--/footerWrapper-->
+
+</body>
+</html>
